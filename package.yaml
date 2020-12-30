@@ -7,7 +7,6 @@ maintainer:          "example@example.com"
 copyright:           "2020 Author name here"
 
 extra-source-files:
-- README.md
 - ChangeLog.md
 
 # Metadata used when publishing your package
@@ -21,6 +20,9 @@ description:         Please see the README on GitHub at <https://github.com/gith
 
 dependencies:
 - base >= 4.7 && < 5
+- text
+- containers
+- protolude
 
 library:
   source-dirs: src
@@ -46,3 +48,5 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - jtor
+    - hspec
+    - QuickCheck
