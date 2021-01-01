@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 34359ba0a07d17c13defa72bc3dd19592c06a8889cefb11e42b40847c9d044ea
+-- hash: e332cceccf0cb888bac1bb496f36eaa409fe0c5be1bc205643915e3504710146
 
 name:           jtor
 version:        0.1.0.0
@@ -27,15 +27,22 @@ library
   exposed-modules:
       BEncode
       BEncode.Internal
+      Metainfo
   other-modules:
       Paths_jtor
   hs-source-dirs:
       src
+  default-extensions: TemplateHaskell OverloadedStrings
   build-depends:
-      base >=4.7 && <5
+      attoparsec
+    , base >=4.7 && <5
+    , bytestring
     , containers
-    , protolude
+    , lens
+    , network-uri
+    , path
     , text
+    , time
   default-language: Haskell2010
 
 executable jtor-exe
@@ -44,13 +51,19 @@ executable jtor-exe
       Paths_jtor
   hs-source-dirs:
       app
+  default-extensions: TemplateHaskell OverloadedStrings
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      attoparsec
+    , base >=4.7 && <5
+    , bytestring
     , containers
     , jtor
-    , protolude
+    , lens
+    , network-uri
+    , path
     , text
+    , time
   default-language: Haskell2010
 
 test-suite jtor-test
@@ -60,13 +73,19 @@ test-suite jtor-test
       Paths_jtor
   hs-source-dirs:
       test
+  default-extensions: TemplateHaskell OverloadedStrings
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       QuickCheck
+    , attoparsec
     , base >=4.7 && <5
+    , bytestring
     , containers
     , hspec
     , jtor
-    , protolude
+    , lens
+    , network-uri
+    , path
     , text
+    , time
   default-language: Haskell2010

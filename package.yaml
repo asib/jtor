@@ -22,7 +22,16 @@ dependencies:
 - base >= 4.7 && < 5
 - text
 - containers
-- protolude
+- attoparsec
+- bytestring
+- lens
+- time
+- network-uri
+- path
+
+default-extensions:
+- TemplateHaskell
+- OverloadedStrings
 
 library:
   source-dirs: src

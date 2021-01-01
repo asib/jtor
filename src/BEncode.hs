@@ -1,11 +1,12 @@
-module BEncode
-    ( Value(..)
-    , decode
-    ) where
+module BEncode where
 
 import qualified Data.Text as T
+import Data.ByteString (ByteString)
 
 import BEncode.Internal
 
-decode :: T.Text -> Maybe Value
-decode = run value . T.unpack
+decode :: ByteString -> Either String BValue
+decode = run value
+
+decodeMaybe :: ByteString -> Maybe BValue
+decodeMaybe = rightToMaybe . run value
